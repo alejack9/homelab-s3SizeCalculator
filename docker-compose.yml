@@ -1,0 +1,16 @@
+services:
+  s3bucketsizerapi:
+    image: s3bucketsizerapi:latest
+    build:
+      context: .
+    container_name: s3bucketsizerapi
+    env_file: .env
+    restart: unless-stopped
+    networks:
+      - homepage
+
+networks:
+  homepage:
+    name: homepage
+    driver: bridge
+    external: true
